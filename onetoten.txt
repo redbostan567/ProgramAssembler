@@ -1,0 +1,15 @@
+MOVEI 0 RA
+MOVEI 1 RB # current number
+MOVEI 4 RC # let this be N
+MOVEI 1 RD # A constant
+
+addToN:
+ADD RA RB RA
+ADD RB RD RB
+SUB RC RD RC
+BRAZ finish
+CALL addToN
+
+finish:
+OPORT RA
+RETURN

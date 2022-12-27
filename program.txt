@@ -1,0 +1,19 @@
+#setup
+MOVEI 1 RA
+MOVEI 1 RB
+MOVEI 0 RC
+MOVEI 8 RD # 10 - (current fibonnaci number) Note: we start with 1 1 in, so we start on the 3rd number
+MOVEI 1 RE # increment amount
+CALL calculate
+
+calculate:
+ADD RA RB RC
+MOVE RB RA
+MOVE RC RB
+SUB RD RE RD
+BRAZ finish
+BRA calculate
+
+finish:
+OPORT RC
+
